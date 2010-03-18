@@ -1,20 +1,46 @@
-^_build
-^Build$
-^blib
-~$
-\.bak$
-^MANIFEST\.SKIP$
-CVS
-\.svn
-\.DS_Store
-cover_db
-\..*\.sw.?$
+# Avoid version control files.
+^RCS
+^CVS
+,v$
+\.svn.*
+^\.hg
+^\.git
+
+# Avoid Makemaker generated and utility files.
 ^Makefile$
-^pm_to_blib$
+^blib
 ^MakeMaker-\d
+^pm_to_blib$
 ^blibdirs$
+^MANIFEST\.SKIP$
+
+# Avoid Module::Build generated and utility files.
+\bBuild$
+\bBuild.bat$
+\b_build
+\bBuild.COM$
+\bBUILD.COM$
+\bbuild.com$
+
+# Avoid temp and backup files.
+~$
 \.old$
-^#.*#$
+\.bak$
+\#$
 ^\.#
-^TODO$
-^\.shipit
+\.rej$
+\.orig$
+
+# Avoid Devel::Cover generated files
+^cover_db
+
+# kwalitee.t junk
+^Debian_CPANTS\.txt
+
+# Avoid tarballs
+\.(?:tar|tgz|tar\.gz)$
+
+^MooseX-Params-Validate-
+
+# No need to ship this
+\.shipit
