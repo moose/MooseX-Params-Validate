@@ -3,4 +3,4 @@ steps = FindVersion, ChangeVersion, CheckChangeLog, CheckVersionsMatch, DistTest
 git.tagpattern = %v
 git.push_to = origin
 
-CheckChangeLog.files = Changes
+CheckChangeLog.files = ChangeLog
