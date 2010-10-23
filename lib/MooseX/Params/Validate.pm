@@ -249,7 +249,7 @@ MooseX::Params::Validate - an extension of Params::Validate for using Moose's ty
           \@_,
           bar => { isa => 'Str', default => 'Moose' },
       );
-      return "Horray for $params{bar}!";
+      return "Hooray for $params{bar}!";
   }
 
   sub bar {
@@ -270,11 +270,11 @@ to Moose. This is just one of many developing options, it should not
 be considered the "official" one by any means though.
 
 You might also want to explore C<MooseX::Method::Signatures> and
-C<MooseX::Declare>
+C<MooseX::Declare>.
 
 =head1 CAVEATS
 
-It is not possible to introspect the method parameter specs, they are
+It is not possible to introspect the method parameter specs; they are
 created as needed when the method is called and cached for subsequent
 calls.
 
@@ -284,9 +284,9 @@ calls.
 
 =item B<validated_hash( \@_, %parameter_spec )>
 
-This behaves similar to the standard Params::Validate C<validate>
+This behaves similarly to the standard Params::Validate C<validate>
 function and returns the captured values in a HASH. The one exception
-being that if it spots an instance in the C<@_>, then it will handle
+is where if it spots an instance in the C<@_>, then it will handle
 it appropriately (unlike Params::Validate which forces you to shift
 you C<$self> first).
 
