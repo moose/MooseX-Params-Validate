@@ -239,13 +239,11 @@ sub _caller_name {
 
 1;
 
+# ABSTRACT: an extension of Params::Validate using Moose's types
+
 __END__
 
 =pod
-
-=head1 NAME
-
-MooseX::Params::Validate - an extension of Params::Validate for using Moose's types
 
 =head1 SYNOPSIS
 
@@ -462,25 +460,16 @@ the cache key will bypass the normal cache key generation.
 
 =back
 
-=head1 BUGS
-
-All complex software has bugs lurking in it, and this module is no
-exception. If you find a bug please either email me, or add the bug to
-cpan-RT.
-
 =head1 AUTHORS
 
 Stevan Little E<lt>stevan.little@iinteractive.comE<gt>
 
 Dave Rolsky E<lt>autarch@urth.orgE<gt>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 BUGS
 
-Copyright 2007-2009 by Infinity Interactive, Inc.
-
-L<http://www.iinteractive.com>
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Please submit bugs to the CPAN RT system at
+http://rt.cpan.org/NoAuth/ReportBug.html?Queue=moosex-params-validate or via
+email at bug-moosex-params-validate@rt.cpan.org.
 
 =cut
