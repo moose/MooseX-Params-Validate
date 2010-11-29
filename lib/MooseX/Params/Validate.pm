@@ -19,8 +19,6 @@ use Sub::Exporter -setup => {
     },
 };
 
-our $AUTHORITY = 'cpan:STEVAN';
-
 my %CACHED_SPECS;
 
 sub validated_hash {
