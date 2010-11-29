@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 31;
+use Test::More;
 use Test::Exception;
 
 {
@@ -147,3 +147,4 @@ throws_ok { $foo->bar( $foo, {},  \( my $var ) ) } qr/\QParameter #3/,
 throws_ok { $foo->bar( $foo, {},  [qw/one two three/] ) } qr/\QParameter #3/,
 '... third param a ArrayRef[Int]';
 
+done_testing();

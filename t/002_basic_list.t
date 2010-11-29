@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 27;
+use Test::More;
 use Test::Exception;
 
 {
@@ -132,3 +132,5 @@ qr/\QThe 'baz' parameter ("Foo")/,
 throws_ok { $foo->bar( foo => $foo, baz => \( my $var ) ) }
 qr/\QThe 'baz' parameter/,
     '... baz requires a ArrayRef | HashRef';
+
+done_testing();

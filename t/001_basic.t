@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 35;
+use Test::More;
 use Test::Exception;
 
 {
@@ -178,3 +178,5 @@ qr/\QThe 'foo' parameter\E.+\Qchecking type constraint/,
 throws_ok { $foo->quux( foo => [ 1, 2, 3, 4 ] ) }
 qr/\QThe 'foo' parameter\E.+\Qsome random callback/,
 '... foo parameter additional callback requires that arrayref be 0-2 elements';
+
+done_testing();

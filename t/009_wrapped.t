@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 2;
+use Test::More;
 use Test::Exception;
 
 {
@@ -63,3 +63,4 @@ use Test::Exception;
                'multiple around wrappers can safely be cached (2nd time)' );
 }
 
+done_testing();

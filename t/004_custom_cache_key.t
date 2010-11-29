@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 7;
+use Test::More;
 use Test::Exception;
 use Scalar::Util;
 
@@ -51,3 +51,4 @@ lives_ok {
 }
 '... successfully applied the parameter validation (just checking)';
 
+done_testing();

@@ -1,4 +1,4 @@
-use Test::More tests => 4;
+use Test::More;
 use strict;
 use warnings;
 
@@ -49,3 +49,4 @@ is(
     'to_string( padded => 1 )'
 );
 
+done_testing();

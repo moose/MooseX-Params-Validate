@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 2;
+use Test::More;
 use Test::Exception;
 
 {
@@ -14,3 +14,5 @@ use Test::Exception;
 
 ok( Foo->can('validate'), ':deprecated tag exports validate' );
 ok( Foo->can('validatep'), ':deprecated tag exports validatep' );
+
+done_testing();

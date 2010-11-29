@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 15;
+use Test::More;
 use Test::Exception;
 
 # Note that setting coerce => 1 for the Num type tests that we don't try to do
@@ -154,3 +154,5 @@ is_deeply(
     [ undef, undef, undef ],
     'did not try to coerce non-existent parameters'
 );
+
+done_testing();

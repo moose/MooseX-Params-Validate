@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 2;
+use Test::More;
 use Test::Exception;
 
 eval <<'EOF';
@@ -18,3 +18,5 @@ is(
     'loading MX::Params::Validate in a non-Moose class does not blow up'
 );
 ok( Foo->can('validated_hash'), 'validated_hash() sub was added to Foo package' );
+
+done_testing();
