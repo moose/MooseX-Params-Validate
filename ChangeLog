@@ -1,5 +1,9 @@
 Revision history for Perl extension MooseX-Params-Validate
 
+0.15
+    - Add MX_PARAMS_VALIDATE_ALLOW_EXTRA which allows extra parameters in
+      validation calls (like allow_extra for Params::Validate).
+
 0.14 Sun. Mar. 18, 2010
     - The validated_hash method failed when called on in an overloaded
       stringify method. Patch by Ian Sillitoe. RT #52565.

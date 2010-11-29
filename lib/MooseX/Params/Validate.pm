@@ -29,6 +29,8 @@ sub validated_hash {
 
     my $cache_key = _cache_key( \%spec );
 
+    my $allow_extra = delete $spec{MX_PARAMS_VALIDATE_ALLOW_EXTRA};
+
     if ( exists $CACHED_SPECS{$cache_key} ) {
         ( ref $CACHED_SPECS{$cache_key} eq 'HASH' )
             || confess
@@ -55,9 +57,10 @@ sub validated_hash {
         for grep { $spec{$_}{coerce} && exists $args{$_} } keys %spec;
 
     %args = Params::Validate::validate_with(
-        params => \%args,
-        spec   => \%spec,
-        called => _caller_name(),
+        params      => \%args,
+        spec        => \%spec,
+        allow_extra => $allow_extra,
+        called      => _caller_name(),
     );
 
     return ( ( defined $instance ? $instance : () ), %args );
@@ -71,6 +74,8 @@ sub validated_list {
     my %spec = @spec;
 
     my $cache_key = _cache_key( \%spec );
+
+    my $allow_extra = delete $spec{MX_PARAMS_VALIDATE_ALLOW_EXTRA};
 
     my @ordered_spec;
     if ( exists $CACHED_SPECS{$cache_key} ) {
@@ -102,9 +107,10 @@ sub validated_list {
         for grep { $spec{$_}{coerce} && exists $args{$_} } keys %spec;
 
     %args = Params::Validate::validate_with(
-        params => \%args,
-        spec   => \%spec,
-        called => _caller_name(),
+        params      => \%args,
+        spec        => \%spec,
+        allow_extra => $allow_extra,
+        called      => _caller_name(),
     );
 
     return (
@@ -124,6 +130,8 @@ sub pos_validated_list {
     my %extra = @_;
 
     my $cache_key = _cache_key( \%extra );
+
+    my $allow_extra = delete $extra{MX_PARAMS_VALIDATE_ALLOW_EXTRA};
 
     my @pv_spec;
     if ( exists $CACHED_SPECS{$cache_key} ) {
@@ -149,9 +157,10 @@ sub pos_validated_list {
         for grep { $pv_spec[$_] && $pv_spec[$_]{coerce} } 0 .. $#args;
 
     @args = Params::Validate::validate_with(
-        params => \@args,
-        spec   => \@pv_spec,
-        called => _caller_name(),
+        params      => \@args,
+        spec        => \@pv_spec,
+        allow_extra => $allow_extra,
+        called      => _caller_name(),
     );
 
     return @args;
@@ -389,6 +398,18 @@ below, simply pass them after the list of parameter validation specs:
 
 =back
 
+=head1 ALLOWING EXTRA PARAMETERS
+
+By default, any parameters not mentioned in the parameter spec cause this
+module to throw an error. However, you can have have this module simply ignore
+them by setting C<MX_PARAMS_VALIDATE_ALLOW_EXTRA> to a true value when calling
+a validation subroutine.
+
+When calling C<validated_hash> or C<pos_validated_list> the extra parameters
+are simply returned in the hash or list as appropriate. However, when you call
+C<validated_list> the extra parameters will not be returned at all. You can
+get them by looking at the original value of C<@_>.
+
 =head1 EXPORTS
 
 By default, this module exports the C<validated_hash>,
@@ -400,11 +421,10 @@ them.
 
 =head1 IMPORTANT NOTE ON CACHING
 
-When C<validate> or C<validatep> are called the first time, the
-parameter spec is prepared and cached to avoid unnecessary
-regeneration. It uses the fully qualified name of the subroutine
-(package + subname) as the cache key.  In 99.999% of the use cases for
-this module, that will be the right thing to do.
+When a validation subroutine is called the first time, the parameter spec is
+prepared and cached to avoid unnecessary regeneration. It uses the fully
+qualified name of the subroutine (package + subname) as the cache key.  In
+99.999% of the use cases for this module, that will be the right thing to do.
 
 However, I have (ab)used this module occasionally to handle dynamic
 sets of parameters. In this special use case you can do a couple
