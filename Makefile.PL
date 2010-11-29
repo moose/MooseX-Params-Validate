@@ -18,6 +18,6 @@ build_requires 'Test::Exception' => '0.21';
 
 license 'Perl';
 
-resources repository => 'http://code2.0beta.co.uk/moose/svn/MooseX-Params-Validate';
+resources repository => 'git://git.moose.perl.org/MooseX-Params-Validate.git';
 
 WriteAll();
