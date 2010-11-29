@@ -19,7 +19,6 @@ use Sub::Exporter -setup => {
     },
 };
 
-our $VERSION   = '0.14';
 our $AUTHORITY = 'cpan:STEVAN';
 
 my %CACHED_SPECS;
@@ -460,9 +459,7 @@ the cache key will bypass the normal cache key generation.
 
 =back
 
-=head1 AUTHORS
-
-Stevan Little E<lt>stevan.little@iinteractive.comE<gt>
+=head1 MAINTAINER
 
 Dave Rolsky E<lt>autarch@urth.orgE<gt>
 
