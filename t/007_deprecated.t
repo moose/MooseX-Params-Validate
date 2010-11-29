@@ -2,14 +2,12 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Exception;
 
 {
     package Foo;
 
     use Moose;
     use MooseX::Params::Validate qw( :deprecated );
-
 }
 
 ok( Foo->can('validate'), ':deprecated tag exports validate' );
