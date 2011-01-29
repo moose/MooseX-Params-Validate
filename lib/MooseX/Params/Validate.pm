@@ -303,6 +303,9 @@ is where if it spots an instance in the C<@_>, then it will handle
 it appropriately (unlike Params::Validate which forces you to shift
 you C<$self> first).
 
+The values in C<@_> can either be a set of name-value pairs or a single hash
+reference.
+
 The C<%parameter_spec> accepts the following options:
 
 =over 4
@@ -356,6 +359,9 @@ We capture the order in which you defined the parameters and then
 return them as a list in the same order. If a param is marked optional
 and not included, then it will be set to C<undef>.
 
+The values in C<@_> can either be a set of name-value pairs or a single hash
+reference.
+
 Like C<validated_hash>, if it spots an object instance as the first
 parameter of C<@_>, it will handle it appropriately, returning it as
 the first argument.
@@ -381,6 +387,9 @@ should validate one of the parameters in the list:
 Unlike the other functions, this function I<cannot> find C<$self> in
 the argument list. Make sure to shift it off yourself before doing
 validation.
+
+The values in C<@_> can either be a list of values or a single array
+reference.
 
 If a parameter is marked as optional and is not present, it will
 simply not be returned.
