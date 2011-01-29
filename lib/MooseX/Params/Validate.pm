@@ -5,7 +5,7 @@ use warnings;
 
 use Carp 'confess';
 use Devel::Caller 'caller_cv';
-use Scalar::Util 'blessed', 'refaddr';
+use Scalar::Util 'blessed', 'refaddr', 'reftype';
 
 use Moose::Util::TypeConstraints qw( find_type_constraint class_type role_type );
 use Params::Validate             ();
@@ -48,7 +48,10 @@ sub validated_hash {
     my $instance;
     $instance = shift @$args if blessed $args->[0];
 
-    my %args = @$args;
+    my %args 
+        = @$args == 1
+        && ref $args->[0]
+        && reftype( $args->[0] ) eq 'HASH' ? %{ $args->[0] } : @$args;
 
     $args{$_} = $spec{$_}{constraint}->coerce( $args{$_} )
         for grep { $spec{$_}{coerce} && exists $args{$_} } keys %spec;
@@ -98,7 +101,10 @@ sub validated_list {
     my $instance;
     $instance = shift @$args if blessed $args->[0];
 
-    my %args = @$args;
+    my %args 
+        = @$args == 1
+        && ref $args->[0]
+        && reftype( $args->[0] ) eq 'HASH' ? %{ $args->[0] } : @$args;
 
     $args{$_} = $spec{$_}{constraint}->coerce( $args{$_} )
         for grep { $spec{$_}{coerce} && exists $args{$_} } keys %spec;
@@ -148,7 +154,10 @@ sub pos_validated_list {
             if $should_cache;
     }
 
-    my @args = @{$args};
+    my @args 
+        = @$args == 1
+        && ref $args->[0]
+        && reftype( $args->[0] ) eq 'ARRAY' ? @{ $args->[0] } : @$args;
 
     $args[$_] = $pv_spec[$_]{constraint}->coerce( $args[$_] )
         for grep { $pv_spec[$_] && $pv_spec[$_]{coerce} } 0 .. $#args;
