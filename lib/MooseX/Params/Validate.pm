@@ -48,7 +48,7 @@ sub validated_hash {
     my $instance;
     $instance = shift @$args if blessed $args->[0];
 
-    my %args 
+    my %args
         = @$args == 1
         && ref $args->[0]
         && reftype( $args->[0] ) eq 'HASH' ? %{ $args->[0] } : @$args;
@@ -101,7 +101,7 @@ sub validated_list {
     my $instance;
     $instance = shift @$args if blessed $args->[0];
 
-    my %args 
+    my %args
         = @$args == 1
         && ref $args->[0]
         && reftype( $args->[0] ) eq 'HASH' ? %{ $args->[0] } : @$args;
