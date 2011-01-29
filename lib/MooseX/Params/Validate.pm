@@ -154,10 +154,7 @@ sub pos_validated_list {
             if $should_cache;
     }
 
-    my @args 
-        = @$args == 1
-        && ref $args->[0]
-        && reftype( $args->[0] ) eq 'ARRAY' ? @{ $args->[0] } : @$args;
+    my @args = @$args;
 
     $args[$_] = $pv_spec[$_]{constraint}->coerce( $args[$_] )
         for grep { $pv_spec[$_] && $pv_spec[$_]{coerce} } 0 .. $#args;
@@ -388,8 +385,9 @@ Unlike the other functions, this function I<cannot> find C<$self> in
 the argument list. Make sure to shift it off yourself before doing
 validation.
 
-The values in C<@_> can either be a list of values or a single array
-reference.
+The values in C<@_> must be a list of values. You cannot pass the values as an
+array reference, because this cannot be distinguished from passing one value
+which is itself an array reference.
 
 If a parameter is marked as optional and is not present, it will
 simply not be returned.

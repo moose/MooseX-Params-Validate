@@ -28,16 +28,6 @@ use Test::Fatal;
 
         return \%p;
     }
-
-    sub baz {
-        my ( $x, $y ) = pos_validated_list(
-            \@_,
-            { isa => 'Any' },
-            { isa => 'Any' },
-        );
-
-        return { x => $x, y => $y };
-    }
 }
 
 is_deeply(
@@ -62,18 +52,6 @@ is_deeply(
     bar( { x => 42, y => 84 } ),
     { x => 42, y => 84 },
     'validated_hash accepts a hash reference'
-);
-
-is_deeply(
-    baz( 42, 84 ),
-    { x => 42, y => 84 },
-    'pos_validated_list accepts a plain array'
-);
-
-is_deeply(
-    baz( [42, 84] ),
-    { x => 42, y => 84 },
-    'pos_validated_list accepts a array reference'
 );
 
 done_testing();
