@@ -1,6 +1,6 @@
 Revision history for Perl extension MooseX-Params-Validate
 
-0.15 Mon. Nob. 29, 2010
+0.15 Mon. Nov. 29, 2010
     - Add MX_PARAMS_VALIDATE_ALLOW_EXTRA which allows extra parameters in
       validation calls (like allow_extra for Params::Validate).
     - Converted to Test::Fatal.
