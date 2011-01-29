@@ -1,5 +1,9 @@
 Revision history for Perl extension MooseX-Params-Validate
 
+0.16 2011-01-29
+    - All the validation methods now accept both a hash (or array) and a
+      reference.
+
 0.15 2010-11-29
     - Add MX_PARAMS_VALIDATE_ALLOW_EXTRA which allows extra parameters in
       validation calls (like allow_extra for Params::Validate).
