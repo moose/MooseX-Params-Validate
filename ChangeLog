@@ -1,5 +1,7 @@
 Revision history for Perl extension MooseX-Params-Validate
 
+    - Don't rely on callback order in tests
+
 0.16 2011-01-29
     - The validated_list and validated_hash functions now accept the values to
       be validated as both a hash and a hash reference.
