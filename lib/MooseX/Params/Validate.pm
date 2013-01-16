@@ -7,8 +7,10 @@ use Carp 'confess';
 use Devel::Caller 'caller_cv';
 use Scalar::Util 'blessed', 'refaddr', 'reftype';
 
-use Moose::Util::TypeConstraints qw( find_type_constraint class_type role_type );
-use Params::Validate             ();
+use Moose 0.58 ();
+use Moose::Util::TypeConstraints
+    qw( find_type_constraint class_type role_type );
+use Params::Validate 0.88 ();
 use Sub::Exporter -setup => {
     exports => [
         qw( validated_hash validated_list pos_validated_list validate validatep )
