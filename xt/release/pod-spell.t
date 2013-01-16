@@ -25,6 +25,7 @@ all_pod_files_spelling_ok();
 __DATA__
 Rolsky
 Stevan
+coercions
 cpan
 isa
 param
