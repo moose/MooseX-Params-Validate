@@ -414,9 +414,9 @@ below, simply pass them after the list of parameter validation specs:
 =head1 ALLOWING EXTRA PARAMETERS
 
 By default, any parameters not mentioned in the parameter spec cause this
-module to throw an error. However, you can have have this module simply ignore
-them by setting C<MX_PARAMS_VALIDATE_ALLOW_EXTRA> to a true value when calling
-a validation subroutine.
+module to throw an error. However, you can have this module simply ignore them
+by setting C<MX_PARAMS_VALIDATE_ALLOW_EXTRA> to a true value when calling a
+validation subroutine.
 
 When calling C<validated_hash> or C<pos_validated_list> the extra parameters
 are simply returned in the hash or list as appropriate. However, when you call
