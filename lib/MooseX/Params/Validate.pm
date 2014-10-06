@@ -195,6 +195,9 @@ sub _convert_to_param_validate_spec {
     $pv_spec{coerce} = $spec->{coerce}
         if exists $spec->{coerce};
 
+    $pv_spec{depends} = $spec->{depends}
+        if exists $spec->{depends};
+
     my $constraint;
     if ( defined $spec->{isa} ) {
         $constraint
@@ -249,6 +252,8 @@ sub _caller_name {
 __END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 SYNOPSIS
 
@@ -334,6 +339,11 @@ Params::Validate.
 If this is true and the parameter has a type constraint which has
 coercions, then the coercion will be called for this parameter. If the
 type does have coercions, then this parameter is ignored.
+
+=item I<depends>
+
+Another parameter that this one depends on. See the L<Params::Validate>
+documentation for more details.
 
 =back
 
