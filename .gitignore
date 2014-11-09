@@ -10,3 +10,4 @@
 .*
 !.gitignore
 MooseX-Params-Validate*
+weaver.ini
