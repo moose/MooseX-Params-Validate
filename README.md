@@ -4,7 +4,7 @@ MooseX::Params::Validate - an extension of Params::Validate using Moose's types
 
 # VERSION
 
-version 0.19
+version 0.20
 
 # SYNOPSIS
 

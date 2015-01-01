@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.20 2015-01-01 (TRIAL RELEASE)
+
 [BACKWARDS INCOMPATIBILITIES]
 
 - The errors thrown by this module when a type constraint fails have
