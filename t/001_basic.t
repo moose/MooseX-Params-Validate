@@ -19,7 +19,7 @@ use Test::Fatal;
             \@_,
             bar => { isa => 'Str', default => 'Moose' },
         );
-        return "Horray for $params{bar}!";
+        return "Hooray for $params{bar}!";
     }
 
     package Foo;
@@ -95,9 +95,9 @@ use Test::Fatal;
 my $foo = Foo->new;
 isa_ok( $foo, 'Foo' );
 
-is( $foo->foo, 'Horray for Moose!', '... got the right return value' );
+is( $foo->foo, 'Hooray for Moose!', '... got the right return value' );
 is(
-    $foo->foo( bar => 'Rolsky' ), 'Horray for Rolsky!',
+    $foo->foo( bar => 'Rolsky' ), 'Hooray for Rolsky!',
     '... got the right return value'
 );
 
