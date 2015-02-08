@@ -215,8 +215,7 @@ sub _convert_to_param_validate_spec {
 
     my $constraint;
     if ( defined $spec->{isa} ) {
-        $constraint
-             = _is_tc( $spec->{isa} )
+        $constraint = _is_tc( $spec->{isa} )
             || Moose::Util::TypeConstraints::find_or_parse_type_constraint(
             $spec->{isa} )
             || class_type( $spec->{isa} );
@@ -236,11 +235,13 @@ sub _convert_to_param_validate_spec {
 
         my $cb = sub {
             return 1 if $constraint->check( $_[0] );
-            die MooseX::Params::Validate::Exception::ValidationFailedForTypeConstraint->new(
+            die
+                MooseX::Params::Validate::Exception::ValidationFailedForTypeConstraint
+                ->new(
                 parameter => $id,
                 type      => $constraint,
                 value     => $_[0],
-            );
+                );
         };
 
         $pv_spec{callbacks}
@@ -258,8 +259,8 @@ sub _is_tc {
 
     return $maybe_tc
         if defined $maybe_tc
-            && blessed $maybe_tc
-            && $maybe_tc->isa('Moose::Meta::TypeConstraint');
+        && blessed $maybe_tc
+        && $maybe_tc->isa('Moose::Meta::TypeConstraint');
 }
 
 sub _caller_name {

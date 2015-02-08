@@ -45,8 +45,7 @@ use Test::Fatal;
         my $self = shift;
         return [
             pos_validated_list(
-                \@_,
-                {
+                \@_, {
                     isa => subtype( 'Object' => where { $_->isa('Foo') } ),
                     optional => 1
                 },
