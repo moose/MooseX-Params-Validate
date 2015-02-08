@@ -221,7 +221,7 @@ sub _convert_to_param_validate_spec {
     }
     elsif ( defined $spec->{does} ) {
         $constraint
-            = _is_tc( $spec->{isa} )
+            = _is_tc( $spec->{does} )
             || find_type_constraint( $spec->{does} )
             || role_type( $spec->{does} );
     }
