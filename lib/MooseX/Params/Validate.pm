@@ -1,3 +1,4 @@
+## no critic (Moose::RequireCleanNamespace, Moose::RequireMakeImmutable)
 package MooseX::Params::Validate;
 
 use strict;
@@ -39,7 +40,7 @@ sub validated_hash {
         ( ref $CACHED_SPECS{$cache_key} eq 'HASH' )
             || confess
             "I was expecting a HASH-ref in the cached $cache_key parameter"
-            . " spec, you are doing something funky, stop it!";
+            . ' spec, you are doing something funky, stop it!';
         %spec = %{ $CACHED_SPECS{$cache_key} };
     }
     else {
@@ -47,7 +48,7 @@ sub validated_hash {
 
         $spec{$_} = _convert_to_param_validate_spec(
             $spec{$_},
-            "The '$_' parameter",
+            qq{The '$_' parameter},
         ) foreach keys %spec;
 
         $CACHED_SPECS{$cache_key} = \%spec
@@ -91,7 +92,7 @@ sub validated_list {
         ( ref $CACHED_SPECS{$cache_key} eq 'ARRAY' )
             || confess
             "I was expecting a ARRAY-ref in the cached $cache_key parameter"
-            . " spec, you are doing something funky, stop it!";
+            . ' spec, you are doing something funky, stop it!';
         %spec         = %{ $CACHED_SPECS{$cache_key}->[0] };
         @ordered_spec = @{ $CACHED_SPECS{$cache_key}->[1] };
     }
@@ -102,7 +103,7 @@ sub validated_list {
 
         $spec{$_} = _convert_to_param_validate_spec(
             $spec{$_},
-            "The '$_' parameter",
+            qq{The '$_' parameter},
         ) foreach keys %spec;
 
         $CACHED_SPECS{$cache_key} = [ \%spec, \@ordered_spec ]
@@ -152,7 +153,7 @@ sub pos_validated_list {
         ( ref $CACHED_SPECS{$cache_key} eq 'ARRAY' )
             || confess
             "I was expecting an ARRAY-ref in the cached $cache_key parameter"
-            . " spec, you are doing something funky, stop it!";
+            . ' spec, you are doing something funky, stop it!';
         @pv_spec = @{ $CACHED_SPECS{$cache_key} };
     }
     else {
@@ -268,6 +269,8 @@ sub _caller_name {
 
     return ( caller( 2 + $depth ) )[3];
 }
+
+no Moose::Util::TypeConstraints;
 
 1;
 

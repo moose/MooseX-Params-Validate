@@ -25,7 +25,7 @@ has value => (
 has type => (
     is       => 'ro',
     isa      => duck_type( [qw( get_message name )] ),
-    required => 1
+    required => 1,
 );
 
 sub _build_message {
@@ -36,6 +36,9 @@ sub _build_message {
         . ' does not pass the type constraint because: '
         . $self->type()->get_message( $self->value() );
 }
+
+no Moose;
+no Moose::Util::TypeConstraints;
 
 __PACKAGE__->meta()->make_immutable();
 

@@ -1,5 +1,4 @@
-#!/usr/bin/perl
-
+## no critic (Moose::RequireCleanNamespace, Modules::ProhibitMultiplePackages, Moose::RequireMakeImmutable)
 use strict;
 use warnings;
 
@@ -30,7 +29,8 @@ like(
     'got custom message for SpecialInt type'
 );
 
-isa_ok( $e,
+isa_ok(
+    $e,
     'MooseX::Params::Validate::Exception::ValidationFailedForTypeConstraint'
 );
 
