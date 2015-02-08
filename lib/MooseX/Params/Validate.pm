@@ -3,6 +3,8 @@ package MooseX::Params::Validate;
 use strict;
 use warnings;
 
+our $VERSION = '0.21';
+
 use Carp 'confess';
 use Devel::Caller 'caller_cv';
 use Scalar::Util 'blessed', 'refaddr', 'reftype';

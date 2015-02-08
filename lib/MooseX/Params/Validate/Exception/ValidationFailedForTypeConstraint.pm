@@ -3,6 +3,8 @@ package MooseX::Params::Validate::Exception::ValidationFailedForTypeConstraint;
 use strict;
 use warnings;
 
+our $VERSION = '0.21';
+
 use Moose;
 use Moose::Util::TypeConstraints qw( duck_type );
 
