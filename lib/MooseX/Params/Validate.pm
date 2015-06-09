@@ -365,7 +365,7 @@ Params::Validate.
 
 If this is true and the parameter has a type constraint which has
 coercions, then the coercion will be called for this parameter. If the
-type does have coercions, then this parameter is ignored.
+type does not have coercions, then this parameter is ignored.
 
 =item I<depends>
 
