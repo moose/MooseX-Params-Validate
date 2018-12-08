@@ -9,5 +9,6 @@
 /Debian_CPANTS.txt
 .*
 !.gitignore
+!.travis.yml
 MooseX-Params-Validate*
 weaver.ini
